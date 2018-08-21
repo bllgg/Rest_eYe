@@ -26,7 +26,21 @@ namespace Rest_eYe
         public void Display()
         {
             ni.MouseClick += new MouseEventHandler(ni_MouseClick);
-            ni.Icon = Resources.dactvtd;
+            //ni.Icon = Resources.dactvtd;
+
+            if (activated && gameMode)
+            {
+                ni.Icon = Resources.GM;
+            }
+            else if(activated && !gameMode)
+            {
+                ni.Icon = Resources.actvtd;
+            }
+            else
+            {
+                ni.Icon = Resources.dactvtd;
+            }
+
             ni.Text = "Rest_eYe";
             ni.Visible = true;
 
@@ -40,7 +54,24 @@ namespace Rest_eYe
 
         void ni_MouseClick(object sender, MouseEventArgs e)
         {
+            if (!activated)
+            {
+                active();
+            }
+            else
+            {
+                deactive();
+            }
+        }
 
+        void active()
+        {
+            activated = true;
+        }
+
+        void deactive()
+        {
+            activated = false;
         }
 
     }
