@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Rest_eYe
 {
-    public partial class Form1 : Form
+    public partial class aboutForm : Form
     {
-        public Form1()
+        public aboutForm()
         {
             InitializeComponent();
         }
