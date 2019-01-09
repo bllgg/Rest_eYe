@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
 
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Windows.Forms;
 using Rest_eYe.Properties;
-using System.Drawing;
+//using System.Drawing;
 
 namespace Rest_eYe
 {
     class ContextMenus
     {
-        bool isActivated = false;
-        bool isGameMode = false;
+        //bool isActivated = false;
+        //bool isGameMode = false;
         bool isAboutLoaded = false;
+        bool isInstructionsLoaded = false;
 
         public ContextMenuStrip create()
         {
@@ -23,22 +24,26 @@ namespace Rest_eYe
             ToolStripSeparator sep;
 
             item = new ToolStripMenuItem();
-            item.Text = "Activate";
+            item.Text = "Instructions";
             item.Click += new EventHandler(Activate_Click);
             item.Image = Resources.actvtdp;
             menu.Items.Add(item);
 
+            /*
             item = new ToolStripMenuItem();
             item.Text = "Deactivate";
             item.Click += new EventHandler(Deactivate_Click);
             item.Image = Resources.dactvtdp;
             menu.Items.Add(item);
+            */
 
+            /*
             item = new ToolStripMenuItem();
             item.Text = "Game Mode";
             item.Click += new EventHandler(GameMode_Click);
             item.Image = Resources.GMp;
             menu.Items.Add(item);
+            */
 
             item = new ToolStripMenuItem();
             item.Text = "About";
@@ -57,18 +62,28 @@ namespace Rest_eYe
 
         void Activate_Click(object sender,EventArgs e)
         {
-
+            checkActivated.actvtd = true;
+            if (!isInstructionsLoaded)
+            {
+                isInstructionsLoaded = true;
+                new InstructionsForm().ShowDialog();
+                isInstructionsLoaded = false;
+            }
         }
 
+        /*
         void Deactivate_Click(object sender,EventArgs e)
         {
-
+            checkActivated.actvtd = false;
         }
+        */
 
+        /*
         void GameMode_Click(object sender,EventArgs e)
         {
-
+            isGameMode = true;
         }
+        */
 
         void About_Click(object sender,EventArgs e)
         {
