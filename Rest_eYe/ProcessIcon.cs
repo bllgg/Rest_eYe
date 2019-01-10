@@ -11,7 +11,7 @@ namespace Rest_eYe
 {
     class ProcessIcon : IDisposable
     {
-        private static System.Timers.Timer aTimer = new System.Timers.Timer(10000);
+        private static System.Timers.Timer aTimer = new System.Timers.Timer(1200000);
         NotifyIcon ni;
         //public static bool activated = false;
         //private bool gameMode = false;
